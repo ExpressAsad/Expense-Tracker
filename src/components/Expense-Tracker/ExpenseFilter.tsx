@@ -9,7 +9,7 @@ const ExpenseFilter = ({ onChange }: Props) => {
         onChange={(e) => onChange(e.target.value)}
         name="ExpenseFilter"
         id=""
-        className="px-6 py-2 border rounded-lg w-lg mb-3"
+        className="px-6 py-2 border rounded-lg w-sm md:w-lg mb-3"
       >
         <option value=""></option>
         {categories.map((cat) => (
