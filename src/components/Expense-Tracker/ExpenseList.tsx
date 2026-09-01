@@ -1,4 +1,4 @@
-interface ExpenseFields {
+export interface ExpenseFields {
   id: number;
   description: string;
   amount: number;
@@ -12,7 +12,9 @@ const ExpenseList = ({ expenses, onClick }: Expense) => {
   return (
     <>
       <table className="table-auto border-collapse border border-gray-400">
-        <caption className="caption-top"><h3 className="text-xl font-bold">Expense List</h3></caption>
+        <caption className="caption-top">
+          <h3 className="text-xl font-bold">Expense List</h3>
+        </caption>
         <thead>
           <tr>
             <th className="border border-gray-400 px-4 py-2">Description</th>
