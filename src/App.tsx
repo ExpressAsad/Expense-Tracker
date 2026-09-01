@@ -1,7 +1,8 @@
 import { useState } from "react";
 import ExpenseList from "./components/Expense-Tracker/ExpenseList";
 import ExpenseFilter from "./components/Expense-Tracker/ExpenseFilter";
-import categories from "./services/categories";
+import ExpenseForm from "./components/Expense-Tracker/ExpenseForm";
+import { type ExpenseFields } from "./components/Expense-Tracker/ExpenseList";
 const App = () => {
   const [expenses, setExpenses] = useState([
     {
@@ -71,8 +72,12 @@ const App = () => {
     : expenses;
   const handleClick = (id: number) =>
     setExpenses(expenses.filter((e) => e.id !== id));
+  const handleSubmit = (data: ExpenseFields) => {
+    setExpenses([...expenses, { ...data, id: expenses.length + 1 }]);
+  };
   return (
     <div>
+      <ExpenseForm onSubmit={handleSubmit} />
       <ExpenseFilter onChange={setCategory} />
       <ExpenseList expenses={filteredExpenses} onClick={handleClick} />
     </div>
